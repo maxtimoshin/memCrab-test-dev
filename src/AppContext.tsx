@@ -14,12 +14,15 @@ const defaultValue: ContextData = {
   setClosestValue: () => {},
   removeRowHandler: () => {},
   addRowHandler: () => {},
+  tableWithStatsHandler: () => {},
+  tableWithStats: [],
 };
 
 const AppContext = createContext<ContextData>(defaultValue);
 
 const AppContextProvider = ({ children }: Child) => {
   const [table, setTable] = useState<Cell[][] | []>([]);
+  const [tableWithStats, setTableWithStats] = useState<Cell[][] | []>([]);
   const [highlightedIds, setHighlightedIds] = useState<number[]>([]);
   const [closestValue, setClosestValue] = useState<number>(1);
   const [currentRowHoveredIdx, setCurrentRowHoveredIdx] = useState<
@@ -113,15 +116,21 @@ const AppContextProvider = ({ children }: Child) => {
     setTable([...table, newRow]);
   }
 
+  // Remove current row
   function removeRowHandler(rowIdx: number) {
     const removedRowTable = table.filter((_, id) => id !== rowIdx);
     setTable(removedRowTable);
+  }
+
+  function tableWithStatsHandler(table: Cell[][]) {
+    setTableWithStats(table);
   }
 
   return (
     <AppContext.Provider
       value={{
         table,
+        tableWithStats,
         highlightedIds,
         currentRowHoveredIdx,
         generateTable,
@@ -131,6 +140,7 @@ const AppContextProvider = ({ children }: Child) => {
         setClosestValue,
         removeRowHandler,
         addRowHandler,
+        tableWithStatsHandler,
       }}
     >
       {children}

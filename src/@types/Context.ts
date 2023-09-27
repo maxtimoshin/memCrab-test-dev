@@ -20,4 +20,6 @@ export type ContextData = {
   setClosestValue: (value: number) => void;
   removeRowHandler: (rowIdx: number) => void;
   addRowHandler: () => void;
+  tableWithStatsHandler: (table: Cell[][]) => void;
+  tableWithStats: Cell[][] | [];
 };

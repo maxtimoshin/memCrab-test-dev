@@ -1,4 +1,4 @@
-import { useMemo, useContext } from "react";
+import { useMemo, useContext, useEffect } from "react";
 import styles from "./Table.module.css";
 import { AppContext } from "../../AppContext";
 import TableRow from "../TableRow";
@@ -6,7 +6,7 @@ import { Cell } from "../../@types/Table";
 import { getRandomNumber } from "../../services/getRandomNumber";
 
 const Table = () => {
-  const { table } = useContext(AppContext);
+  const { table, tableWithStatsHandler } = useContext(AppContext);
 
   function generateTableWithStats(table: Cell[][]) {
     const tableWithStats: Cell[][] = [];
@@ -57,6 +57,8 @@ const Table = () => {
       tableWithStats[tableWithStats.length - 1]?.push({
         id: getRandomNumber(1, 99999),
         // TBD : fix amount visualization
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         amount: null,
         isDisabled: true,
         type: "avgCell",
@@ -67,6 +69,10 @@ const Table = () => {
   }
 
   const tableWithStats = useMemo(() => generateTableWithStats(table), [table]);
+
+  useEffect(() => {
+    tableWithStatsHandler(tableWithStats);
+  }, [tableWithStats]);
 
   return (
     <>
