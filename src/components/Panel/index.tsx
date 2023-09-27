@@ -65,6 +65,7 @@ const Panel = () => {
         />
         <button
           type="submit"
+          className={styles.generateButton}
           onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
             generateTable(+tableSize.rows, +tableSize.columns, e)
           }

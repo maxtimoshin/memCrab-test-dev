@@ -18,8 +18,16 @@
     outline: none;
     transition: all 0.3s;
     border: 2px solid transparent;
+    background: #272727;
+    color: #cecece;
+    border: 2px solid rgb(255, 255, 255, 0.2);
 }
 
 .panel form input:focus {
-    border: 2px solid rgb(255, 255, 255, 0.2);
+    border: 2px solid rgb(255, 255, 255, 0.8);
+}
+
+.generateButton {
+    color: #cecece;
+    font-weight: 400;
 }

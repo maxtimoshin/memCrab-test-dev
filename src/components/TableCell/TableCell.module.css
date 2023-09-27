@@ -8,6 +8,7 @@
     min-width: 70px;
     border-radius: 0;
     transition: all 0.3s;
+    color: #cecece;
 }
 
 .tableCell:hover {
