@@ -1,0 +1,26 @@
+.tableCell {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(255, 255, 255, 0.4);
+    padding: 10px 0;
+    min-width: 70px;
+    border-radius: 0;
+    transition: all 0.3s;
+}
+
+.tableCell:hover {
+    border: 1px solid #fff;
+    background: #3b3b3b;
+}
+
+.disabled:hover {
+    border: 1px solid rgb(255, 255, 255, 0.4);
+    background: #1a1a1a;
+    cursor: initial;
+}
+
+.highlighted {
+    background: rgb(24, 197, 110, 0.5);
+}

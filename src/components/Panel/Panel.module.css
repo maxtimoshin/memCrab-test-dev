@@ -1,0 +1,25 @@
+.panel {
+    width: 20%;
+    border-right: 2px solid rgb(255, 255, 255, 0.2);
+    padding: 20px;
+}
+
+.panel form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.panel form input {
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    padding: 0 0 0 10px;
+    outline: none;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+}
+
+.panel form input:focus {
+    border: 2px solid rgb(255, 255, 255, 0.2);
+}
